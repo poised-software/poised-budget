@@ -1,0 +1,27 @@
+{
+  "name": "poised-budget",
+  "version": "0.0.1",
+  "description": "A simple, offline-first, self-hosted, zero-based budgeting solution. ",
+  "main": "intex.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poised-soft/poised-budget.git"
+  },
+  "keywords": [
+    "offline-first",
+    "self-hosted",
+    "zero-based",
+    "budget"
+  ],
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/poised-soft/poised-budget/issues"
+  },
+  "homepage": "https://github.com/poised-soft/poised-budget#readme",
+  "dependencies": {
+    "pouchdb": "^9.0.0"
+  }
+}
