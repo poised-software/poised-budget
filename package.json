@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/poised-soft/poised-budget#readme",
   "dependencies": {
+    "openpgp": "^6.0.1",
     "pouchdb": "^9.0.0"
   }
 }
