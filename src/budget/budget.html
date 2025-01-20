@@ -7,23 +7,38 @@
     <link rel="stylesheet" href="../../index.css" />
     <link rel="stylesheet" href="./budget.css" />
     <script src="../../node_modules/pouchdb/dist/pouchdb.min.js"></script>
-    <!-- <script src="../../node_modules/openpgp/dist/openpgp.min.js"></script> -->
-    <script src="./budget.js"></script>
-    <script type="text/javascript">
-        initializeBudget();
+    <script src="../../node_modules/openpgp/dist/openpgp.min.js"></script>
+    <script type="module">
+        import { initializeBudget, nextOrPreviousMonth } from './budget.js'
+        import { saveBudget } from '../../node_modules/poised-budget-core/utils.js';
+
+        let password = sessionStorage.getItem("password");
+        password = password || prompt("Please input your password:");
+        // Not the best way to store a password, but reasonable enough for development environment.
+        // This seems to be reasonbly secure as long as the user doesn't open any other web page within the same tab
+        // (Other tabs don't have access to the sessionStorage and it is cleared as soon as the tab is closed)
+        // A SPA version of this application would take care of this issue, but for the moment, the focus is on keeping
+        // this version as light-weight as possible while still having "reasonble" security.
+        sessionStorage.setItem("password", password);
+
+        initializeBudget(password);
+
+        document.getElementById("previous").addEventListener("click", (event) => { nextOrPreviousMonth(event, false) })
+        document.getElementById("next").addEventListener("click", (event) => { nextOrPreviousMonth(event) })
+        document.getElementById("budget").addEventListener("submit", (event) => { saveBudget(PouchDB, openpgp, event, password) })
     </script>
 </head>
 <body>
     <h1>Budget</h1>
     <form id="budgetMonth">
-        <button class="secondary previous" onclick="nextOrPreviousMonth(event, false)">➜</button>
+        <button id="previous" class="secondary previous">➜</button>
         <div id="monthDisplay">
             <h2 id="month">Loading...</h2>
             <p id="year">Loading...</p>
         </div>
-        <button class="secondary" onclick="nextOrPreviousMonth(event)">➜</button>
+        <button id="next" class="secondary">➜</button>
     </form>
-    <form onsubmit="saveBudget(event)">
+    <form id="budget">
         <div id="form-fields">
             <p>Loading...</p>
         </div>
