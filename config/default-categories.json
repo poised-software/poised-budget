@@ -1,0 +1,271 @@
+{
+  "poisedBudgetVersion": "0.0.1",
+  "categories": [
+    {
+      "name": "Giving",
+      "order": 0,
+      "sub_categories": [
+        {
+          "name": "Tithe",
+          "order": 0
+        },
+        {
+          "name": "Charity",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "name": "Housing & Utilities",
+      "order": 1,
+      "sub_categories": [
+        {
+          "name": "Rent",
+          "order": 0
+        },
+        {
+          "name": "Mobile Phone",
+          "order": 1
+        },
+        {
+          "name": "Electric",
+          "order": 2
+        },
+        {
+          "name": "Water & Sewer",
+          "order": 3
+        },
+        {
+          "name": "Natural Gas",
+          "order": 4
+        },
+        {
+          "name": "Internet",
+          "order": 5
+        },
+        {
+          "name": "Trash",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "name": "Food",
+      "order": 2,
+      "sub_categories": [
+        {
+          "name": "Groceries",
+          "order": 0
+        },
+        {
+          "name": "Restaurants",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "name": "Transportation",
+      "order": 3,
+      "sub_categories": [
+        {
+          "name": "Public Transit",
+          "order": 0
+        },
+        {
+          "name": "Gas",
+          "order": 1
+        },
+        {
+          "name": "Car Maintenance",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "name": "Insurance",
+      "order": 4,
+      "sub_categories": [
+        {
+          "name": "Auto Insurance",
+          "order": 0
+        },
+        {
+          "name": "Renter's Insurance",
+          "order": 1
+        },
+        {
+          "name": "Life Insurance",
+          "order": 2
+        },
+        {
+          "name": "Identity Theft Insurance",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Saving",
+      "order": 5,
+      "sub_categories": [
+        {
+          "name": "Emergency Fund",
+          "order": 0
+        },
+        {
+          "name": "Retirement",
+          "order": 1
+        },
+        {
+          "name": "Large Expenses",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "order": 6,
+      "sub_categories": [
+        {
+          "name": "Gym Membership",
+          "order": 0
+        },
+        {
+          "name": "Labs & Preventive Appointments",
+          "order": 1
+        },
+        {
+          "name": "Copays",
+          "order": 2
+        },
+        {
+          "name": "Medications",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Kids",
+      "order": 7,
+      "sub_categories": [
+        {
+          "name": "Childcare",
+          "order": 0
+        },
+        {
+          "name": "School Tuition",
+          "order": 1
+        },
+        {
+          "name": "School Supplies",
+          "order": 2
+        },
+        {
+          "name": "Sports & Extracuriculars",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Debt",
+      "order": 8,
+      "sub_categories": [
+        {
+          "name": "Car Payment",
+          "order": 0
+        },
+        {
+          "name": "Student Loans",
+          "order": 1
+        },
+        {
+          "name": "Credit Cards",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "name": "Pets",
+      "order": 9,
+      "sub_categories": [
+        {
+          "name": "Pet Food",
+          "order": 0
+        },
+        {
+          "name": "Pet Medicaiton",
+          "order": 1
+        },
+        {
+          "name": "Vet Visits",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "name": "Lifestyle",
+      "order": 10,
+      "sub_categories": [
+        {
+          "name": "Video Streaming",
+          "order": 0
+        },
+        {
+          "name": "Music Streaming",
+          "order": 1
+        },
+        {
+          "name": "Event Tickets",
+          "order": 2
+        },
+        {
+          "name": "Travel",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Personal",
+      "order": 11,
+      "sub_categories": [
+        {
+          "name": "Clothing",
+          "order": 0
+        },
+        {
+          "name": "Personal Care",
+          "order": 1
+        },
+        {
+          "name": "Hair Cut",
+          "order": 2
+        },
+        {
+          "name": "Fun Money",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Miscellaneous",
+      "order": 12,
+      "sub_categories": [
+        {
+          "name": "Taxes",
+          "order": 0
+        },
+        {
+          "name": "Holidays & Special Occasions",
+          "order": 1
+        },
+        {
+          "name": "Gifts",
+          "order": 2
+        },
+        {
+          "name": "Other Miscellaneous",
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poised Budget - Categories</title>
+    <link rel="stylesheet" href="../../index.css" />
+    <link rel="stylesheet" href="./categories.css" />
+</head>
+<body>
+    <div id="initial-blurb">
+        <h1>Select Your Budget Categories</h1>
+        <p>We've got a good list of defaults for you, but feel free make changes.</p>
+    </div>
+    <form action="../budget/budget.html" method="GET">
+        <textarea name="json" id="json"></textarea>
+        <a class="secondary" href="../../index.html">Cancel</a>
+        <button class="primary">Submit</button>
+    </form>
+</body>
+<script type="text/javascript">
+    fetch('/config/default-categories.json')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementsByTagName("textarea")[0].innerHTML = data
+        })
+</script>
+</html>

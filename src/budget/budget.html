@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poised Budget - Budget</title>
+    <link rel="stylesheet" href="../../index.css" />
+    <link rel="stylesheet" href="./budget.css" />
+    <script src="../../node_modules/pouchdb/dist/pouchdb.min.js"></script>
+    <!-- <script src="../../node_modules/openpgp/dist/openpgp.min.js"></script> -->
+    <script src="./budget.js"></script>
+    <script type="text/javascript">
+        initializeBudget();
+    </script>
+</head>
+<body>
+    <h1>Budget</h1>
+    <form id="budgetMonth">
+        <button class="secondary previous" onclick="nextOrPreviousMonth(event, false)">➜</button>
+        <div id="monthDisplay">
+            <h2 id="month">Loading...</h2>
+            <p id="year">Loading...</p>
+        </div>
+        <button class="secondary" onclick="nextOrPreviousMonth(event)">➜</button>
+    </form>
+    <form onsubmit="saveBudget(event)">
+        <div id="form-fields">
+            <p>Loading...</p>
+        </div>
+        <button class="primary">Submit</button>
+    </form>
+</body>
+</html>
