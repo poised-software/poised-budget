@@ -1,12 +1,12 @@
 import { getCurrentBudget, getCategories } from "../../node_modules/poised-budget-core/utils.js";
 
-async function initializeBudget(password) {
+async function initializeBudget(password, editable = true) {
     const params = new URLSearchParams(document.location.search);
 
     if (!params.get("budgetMonth")) {
         const date = new Date;
         params.append("budgetMonth", `${date.toLocaleString("default", { month: "long" })}_${date.getFullYear()}`)
-        window.location.replace(`/src/budget/budget.html?${params}`);
+        window.location.replace(`${window.location.pathname}?${params}`);
     }
 
     const currentBudget = await getCurrentBudget(PouchDB, openpgp, params, password);
@@ -18,15 +18,27 @@ async function initializeBudget(password) {
         const subCategories = categoryResults.filter(s => s.category === categories[c]._id).sort((a, b) => a.order - b.order);
         const subCategoryDivs = [];
         for (let s = 0; s < subCategories.length; s++) {
-            subCategoryDivs.push(`
-                <div class="sub-category">
-                    <label for="${subCategories[s]._id}">${subCategories[s].name}</label>
-                    <div class="money-input">
-                        <label for="${subCategories[s]._id}">$</label>
-                        <input id="${subCategories[s]._id}" type="number" placeholder="0.00" value="${currentBudget.find(c => c.id === subCategories[s]._id)?.value.toFixed(2) || "0.00"}" step="0.01" min="0" />
+            if (editable) {
+                subCategoryDivs.push(`
+                    <div class="sub-category">
+                        <label for="${subCategories[s]._id}">${subCategories[s].name}</label>
+                        <div class="money-input">
+                            <label for="${subCategories[s]._id}">$</label>
+                            <input id="${subCategories[s]._id}" type="number" placeholder="0.00" value="${currentBudget.find(c => c.id === subCategories[s]._id)?.value.toFixed(2) || "0.00"}" step="0.01" min="0" />
+                        </div>
                     </div>
-                </div>
-            `);
+                `);
+            } else {
+                subCategoryDivs.push(`
+                    <div class="sub-category view-mode">
+                        <p>${subCategories[s].name}</label>
+                        <div class="budgetValues">
+                            <p id="${subCategories[s]._id}_spent">Loading...</p>
+                            <p class="subscript">$ ${currentBudget.find(c => c.id === subCategories[s]._id)?.value.toFixed(2) || "0.00"}</p>
+                        </div>
+                    </div>
+                `);
+            }
         }
         catDivs.push(`
             <div class="category">
@@ -45,6 +57,7 @@ async function initializeBudget(password) {
 
 function nextOrPreviousMonth(event, next = true) {
     event.preventDefault();
+    
     const increment = next ? 1 : -1;
 
     const params = new URLSearchParams(document.location.search);
@@ -52,7 +65,7 @@ function nextOrPreviousMonth(event, next = true) {
     date.setMonth(date.getMonth() + increment);
     const budgetMonth = `${date.toLocaleString("default", { month: "long" })}_${date.getFullYear()}`;
     params.set("budgetMonth", budgetMonth);
-    window.location.replace(`/src/budget/budget.html?${params}`);
+    window.location.replace(`${window.location.pathname}?${params}`);
 }
 
 export { initializeBudget, nextOrPreviousMonth }

@@ -6,17 +6,9 @@
 
 body {
     padding: 20px;
-}
-
-h1, p {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #684551;
-    text-align: center;
-}
-
-h1 {
-    margin-bottom: 20px;
-    font-size: 32px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 div {
@@ -32,6 +24,96 @@ a, button {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.5s;
+}
+
+h1, p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #684551;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    color: #684551;
+    padding: 5px 10px;
+}
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #684551;
+    padding: 5px 10px;
+    text-align: left;
+    border-bottom: 1px solid #684551;
+}
+
+textarea {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    height: 100%;
+    margin: 20px;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+label {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+#budget {
+    display: block;
+}
+
+#budgetTitle {
+    margin-bottom: 5px;
+}
+
+#budgetMonth {
+    justify-content: center;
+    flex-direction: row;
+    flex-grow: unset;
+}
+
+#monthDisplay {
+    width: 131px;
+}
+
+#budget .primary {
+    float: right;
+}
+
+.sub-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 5vw;
+}
+
+.budgetSecondary {
+    height: 45px;
+    align-self: center;
+}
+
+.previous {
+    transform: rotate(180deg);
+}
+
+.categoriesButton {
+    margin: 5px auto;
+    width: 250px;
+    max-width: 100%;
 }
 
 .primary {
@@ -50,18 +132,46 @@ a, button {
     color: #684551;
 }
 
-h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 24px;
-    color: #684551;
-    padding: 5px 10px;
+.money-input {
+    display: flex;
+    max-width: 100px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
-h3 {
+.money-input:focus-within {
+    outline: 2px solid #684551;
+}
+
+.money-input label {
+    padding: 10px;
+}
+
+.money-input input {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
-    color: #684551;
-    padding: 5px 10px;
-    text-align: left;
-    border-bottom: 1px solid #684551;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: right;
+    border-radius: 5px;
+}
+
+.floatingActionButton {
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    float: right;
+}
+
+.subscript {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.view-mode {
+    margin: 20px 5vw;
 }

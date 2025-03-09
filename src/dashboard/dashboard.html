@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poised Budget - Budget</title>
+    <title>Poised Budget - Dashboard</title>
     <link rel="stylesheet" href="../../index.css" />
     <script src="../../node_modules/pouchdb/dist/pouchdb.min.js"></script>
     <script src="../../node_modules/openpgp/dist/openpgp.min.js"></script>
     <script type="module">
-        import { initializeBudget, nextOrPreviousMonth } from './budget.js'
-        import { saveBudget } from '../../node_modules/poised-budget-core/utils.js';
+        import { nextOrPreviousMonth, initializeBudget } from '../budget/budget.js'
 
         let password = sessionStorage.getItem("password");
         password = password || prompt("Please input your password:");
@@ -20,15 +19,14 @@
         // this version as light-weight as possible while still having "reasonble" security.
         sessionStorage.setItem("password", password);
 
-        initializeBudget(password);
+        initializeBudget(password, false);
 
         document.getElementById("previous").addEventListener("click", (event) => { nextOrPreviousMonth(event, false) })
         document.getElementById("next").addEventListener("click", (event) => { nextOrPreviousMonth(event) })
-        document.getElementById("budget").addEventListener("submit", (event) => { saveBudget(PouchDB, openpgp, event, password) })
     </script>
 </head>
 <body>
-    <h1 id="budgetTitle">Budget</h1>
+    <h1 id="budgetTitle">Poised Budget Dashboard</h1>
     <form id="budgetMonth">
         <button id="previous" class="secondary previous">➜</button>
         <div id="monthDisplay">
@@ -41,7 +39,7 @@
         <div id="form-fields">
             <p>Loading...</p>
         </div>
-        <button class="primary">Submit</button>
+        <button class="primary floatingActionButton">+</button>
     </form>
 </body>
 </html>
